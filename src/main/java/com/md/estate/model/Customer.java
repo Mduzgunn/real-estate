@@ -7,8 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,10 +40,31 @@ public class Customer {
     @Column(name = "email_address")
     private String emailAddress;
 
-    @ManyToOne
-    @JoinColumn(name = "business_id", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "business_id")
     private Business business;
 
-    @OneToMany(mappedBy = "customerInfo", cascade = CascadeType.ALL)
-    private List<Estate> estate;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Estate> estates;
+
+    public Customer(String name, String surname, String homePhoneNumber, String mobilePhoneNumber,
+                    String emailAddress, Business business, List<Estate> estates) {
+        this.name = name;
+        this.surname = surname;
+        this.homePhoneNumber = homePhoneNumber;
+        this.mobilePhoneNumber = mobilePhoneNumber;
+        this.emailAddress = emailAddress;
+        this.business = business;
+        this.estates = estates;
+
+    }
+
+    public Customer(String name, String surname, String homePhoneNumber,
+                    String mobilePhoneNumber, String emailAddress) {
+        this.name = name;
+        this.surname = surname;
+        this.homePhoneNumber = homePhoneNumber;
+        this.mobilePhoneNumber = mobilePhoneNumber;
+        this.emailAddress = emailAddress;
+    }
 }

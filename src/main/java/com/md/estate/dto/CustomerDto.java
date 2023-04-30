@@ -1,11 +1,10 @@
 package com.md.estate.dto;
 
 import com.md.estate.model.Business;
-import com.md.estate.model.Estate;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,10 +30,11 @@ public class CustomerDto {
 
     private String emailAddress;
 
-    @ManyToOne
-    @JoinColumn(name = "business_id", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "business_id")
     private Business business;
 
     @OneToMany(mappedBy = "customerInfo", cascade = CascadeType.ALL)
-    private List<Estate> estate;
+    private List<EstateDto> estate;
+
 }

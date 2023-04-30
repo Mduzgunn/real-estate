@@ -67,10 +67,6 @@ public class EstateService {
         Estate estate = findEstateById(id);
         Estate updateEstate = new Estate(
                 estate.getId(),
-                updateEstateRequest.getEstateType(),
-                updateEstateRequest.getSquareMeters(),
-                updateEstateRequest.getRoomNumber(),
-                updateEstateRequest.getFloorNumber(),
                 updateEstateRequest.getHeatingSystem(),
                 estate.getCustomer()
         );

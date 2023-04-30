@@ -39,7 +39,6 @@ public class BusinessService {
     public BusinessDto createBusiness(CreateBusinessRequest createBusinessRequest) {
         Business business = new Business(
                 createBusinessRequest.getBusinessName(),
-                createBusinessRequest.getContactPerson(),
                 createBusinessRequest.getAddress(),
                 createBusinessRequest.getPhone(),
                 createBusinessRequest.getFax()
@@ -49,8 +48,6 @@ public class BusinessService {
 
     public BusinessDto updateBusiness(Long id, UpdateBusinessRequest updateBusinessRequest) {
         Business business = findBusinessById(id);
-        business.setBusinessName(updateBusinessRequest.getBusinessName());
-        business.setContactPerson(updateBusinessRequest.getContactPerson());
         business.setAddress(updateBusinessRequest.getAddress());
         business.setPhone(updateBusinessRequest.getPhone());
         business.setFax(updateBusinessRequest.getFax());

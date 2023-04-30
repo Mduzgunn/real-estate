@@ -6,15 +6,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "business")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Business {
 
     @Id
@@ -24,15 +28,19 @@ public class Business {
     @Column(name = "business_name")
     private String businessName;
 
-    @Column(name = "contact_person")
-    private String contactPerson;
-
     private String address;
 
     private String phone;
 
     private String fax;
 
-    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL)
-    private List<Customer> customer;
+    @OneToOne(mappedBy = "business", cascade = CascadeType.ALL)
+    private Customer customer;
+
+    public Business(String businessName, String address, String phone, String fax) {
+        this.businessName = businessName;
+        this.address = address;
+        this.phone = phone;
+        this.fax = fax;
+    }
 }

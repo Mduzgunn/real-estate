@@ -2,7 +2,7 @@ package com.md.estate.dto;
 
 import com.md.estate.model.Customer;
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,14 +20,13 @@ public class BusinessDto {
 
     private String businessName;
 
-    private String contactPerson;
-
     private String address;
 
     private String phone;
 
     private String fax;
 
-    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL)
-    private List<Customer> customer;
+    @OneToOne(mappedBy = "business", cascade = CascadeType.ALL)
+    private Customer customer;
+
 }

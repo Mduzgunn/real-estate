@@ -44,4 +44,20 @@ public class Estate {
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
+
+    public Estate(EstateType estateType, double squareMeters, int roomNumber, int floorNumber,
+                  String heatingSystem, Customer customer) {
+        this.estateType = estateType;
+        this.squareMeters = squareMeters;
+        this.roomNumber = roomNumber;
+        this.floorNumber = floorNumber;
+        this.heatingSystem = heatingSystem;
+        this.customer = customer;
+    }
+
+    public Estate(Long id, String heatingSystem, Customer customer) {
+        this.id = id;
+        this.heatingSystem = heatingSystem;
+        this.customer = customer;
+    }
 }

@@ -19,16 +19,11 @@ import java.util.List;
 public class CustomerService {
     private final CustomerRepository customerRepository;
     private final CustomerDtoConverter customerDtoConverter;
-    private final EstateDtoConverter estateDtoConverter;
-    private final BusinessService businessService;
 
     public CustomerService(CustomerRepository customerRepository,
-                           CustomerDtoConverter customerDtoConverter,
-                           EstateDtoConverter estateDtoConverter, BusinessService businessService) {
+                           CustomerDtoConverter customerDtoConverter) {
         this.customerRepository = customerRepository;
         this.customerDtoConverter = customerDtoConverter;
-        this.estateDtoConverter = estateDtoConverter;
-        this.businessService = businessService;
     }
 
     protected Customer findCustomerById(Long id) {
@@ -56,38 +51,25 @@ public class CustomerService {
     }
 
     public CustomerDto createCustomer(CreateCustomerRequest createCustomerRequest) {
-        Business business = businessService.findBusinessById(createCustomerRequest.getBusinessId());
-
-        List<Estate> estates = new ArrayList<>();
-        if (createCustomerRequest.getEstateList() != null) {
-            estates = estateDtoConverter.convertToEstateList(createCustomerRequest.getEstateList());
-        }
 
         Customer customer = new Customer(
                 createCustomerRequest.getName(),
                 createCustomerRequest.getSurname(),
                 createCustomerRequest.getHomePhoneNumber(),
                 createCustomerRequest.getMobilePhoneNumber(),
-                createCustomerRequest.getEmailAddress(),
-                business,
-                estates
+                createCustomerRequest.getEmailAddress()
         );
-        customer.setEstate(estates);
         return customerDtoConverter.convert(customerRepository.save(customer));
     }
 
     public CustomerDto updateCustomer(Long id, UpdateCustomerRequest updateCustomerRequest) {
         Customer customer = findCustomerById(id);
-        Business business = businessService.findBusinessById(updateCustomerRequest.getBusinessId());
-        List<Estate> estates = estateDtoConverter.convertToEstateList(updateCustomerRequest.getEstateList());
 
         customer.setName(updateCustomerRequest.getName());
         customer.setSurname(updateCustomerRequest.getSurname());
         customer.setHomePhoneNumber(updateCustomerRequest.getHomePhoneNumber());
         customer.setMobilePhoneNumber(updateCustomerRequest.getMobilePhoneNumber());
         customer.setEmailAddress(updateCustomerRequest.getEmailAddress());
-        customer.setBusiness(business);
-        customer.setEstate(estates);
 
         return customerDtoConverter.convert(customerRepository.save(customer));
     }
