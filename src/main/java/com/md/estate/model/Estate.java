@@ -1,5 +1,6 @@
 package com.md.estate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -43,6 +44,7 @@ public class Estate {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
+    @JsonIgnore
     private Customer customer;
 
     public Estate(EstateType estateType, double squareMeters, int roomNumber, int floorNumber,

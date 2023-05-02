@@ -2,7 +2,10 @@ package com.md.estate.controller;
 
 import com.md.estate.dto.EstateDto;
 import com.md.estate.dto.request.CreateEstateRequest;
+import com.md.estate.dto.request.EstateSearchRequest;
 import com.md.estate.dto.request.UpdateEstateRequest;
+import com.md.estate.model.Estate;
+import com.md.estate.model.EstateType;
 import com.md.estate.service.EstateService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -50,5 +53,15 @@ public class EstateController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEstateById(@PathVariable Long id) {
         return ResponseEntity.ok(estateService.deleteEstateById(id));
+    }
+
+    @GetMapping("/type/{estateType}")
+    public List<Estate> findEstatesByType(@PathVariable("estateType") EstateType estateType) {
+        return estateService.findEstatesByType(estateType);
+    }
+
+    @GetMapping("/search")
+    public List<Estate> search(EstateSearchRequest estateSearchRequest) {
+        return estateService.search(estateSearchRequest);
     }
 }

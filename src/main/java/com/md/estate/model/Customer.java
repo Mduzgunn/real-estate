@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -45,7 +46,7 @@ public class Customer {
     private Business business;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Estate> estates;
+    private List<Estate> estates = new ArrayList<>();
 
     public Customer(String name, String surname, String homePhoneNumber, String mobilePhoneNumber,
                     String emailAddress, Business business, List<Estate> estates) {

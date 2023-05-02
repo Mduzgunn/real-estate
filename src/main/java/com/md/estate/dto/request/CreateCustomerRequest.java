@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateCustomerRequest implements Serializable {
+public class CreateCustomerRequest {
     private String name;
     private String surname;
     private String homePhoneNumber;

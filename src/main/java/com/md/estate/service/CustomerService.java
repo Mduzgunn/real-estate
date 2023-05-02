@@ -2,17 +2,13 @@ package com.md.estate.service;
 
 import com.md.estate.dto.CustomerDto;
 import com.md.estate.dto.converter.CustomerDtoConverter;
-import com.md.estate.dto.converter.EstateDtoConverter;
 import com.md.estate.dto.request.CreateCustomerRequest;
 import com.md.estate.dto.request.UpdateCustomerRequest;
 import com.md.estate.exception.CustomerNotFoundException;
-import com.md.estate.model.Business;
 import com.md.estate.model.Customer;
-import com.md.estate.model.Estate;
 import com.md.estate.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
