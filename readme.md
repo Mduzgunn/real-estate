@@ -44,12 +44,8 @@ Veriler alınırken eğer bir hata ile karşılaşılmamışsa görseldeki gibi 
 
 ## Senaryo
 estate eklemesi yapıyoruz
-<<<<<<< HEAD
 
-![](src/main/resources/images/senaryo1.png)
-=======
 ![](src/main/resources/images/senaryo1.PNG)
->>>>>>> 8e95cd97d120466211cfd72dca0f56913f781c37
 
 sonrasında "http://localhost:8080/v1/estate/search?squareMeters=150&floorNumber=1" url'inden 'squareMeters' ve 'floorNumber' parametrelerini kullanarak arama yapıyoruz.
 
