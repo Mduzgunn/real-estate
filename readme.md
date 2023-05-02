@@ -33,22 +33,22 @@ Projeyi çalıştırın
 
 ## Kullanım
 http://localhost:8080/swagger url'inden swagger'a ulaşabilirsiniz.
-![](src/main/resources/images/api.png)
+![](src/main/resources/images/api.PNG)
 
 Uml
-![](src/main/resources/images/diagram.png)
+![](src/main/resources/images/diagram.PNG)
 
 Veriler alınırken eğer bir hata ile karşılaşılmamışsa görseldeki gibi PostgreSQL'de oluşturduğumuz db'ye kaydedilecektir.
-![](src/main/resources/images/db.png)
+![](src/main/resources/images/db.PNG)
 
 
 ## Senaryo
 estate eklemesi yapıyoruz
-![](src/main/resources/images/senaryo1.png)
+![](src/main/resources/images/senaryo1.PNG)
 
 sonrasında "http://localhost:8080/v1/estate/search?squareMeters=150&floorNumber=1" url'inden 'squareMeters' ve 'floorNumber' parametrelerini kullanarak arama yapıyoruz.
 
-![](src/main/resources/images/senaryo2.png)
+![](src/main/resources/images/senaryo2.PNG)
 
 
 Bu parametreleri swagger kullanarak kolaylıkla ayarlayabilirsiniz.
