@@ -1,5 +1,6 @@
 package com.md.estate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -48,17 +49,6 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Estate> estates = new ArrayList<>();
 
-    public Customer(String name, String surname, String homePhoneNumber, String mobilePhoneNumber,
-                    String emailAddress, Business business, List<Estate> estates) {
-        this.name = name;
-        this.surname = surname;
-        this.homePhoneNumber = homePhoneNumber;
-        this.mobilePhoneNumber = mobilePhoneNumber;
-        this.emailAddress = emailAddress;
-        this.business = business;
-        this.estates = estates;
-
-    }
 
     public Customer(String name, String surname, String homePhoneNumber,
                     String mobilePhoneNumber, String emailAddress) {

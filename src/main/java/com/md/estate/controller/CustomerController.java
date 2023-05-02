@@ -4,7 +4,7 @@ import com.md.estate.dto.CustomerDto;
 import com.md.estate.dto.request.CreateCustomerRequest;
 import com.md.estate.dto.request.UpdateCustomerRequest;
 import com.md.estate.service.CustomerService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

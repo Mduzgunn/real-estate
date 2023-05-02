@@ -60,11 +60,6 @@
             <artifactId>spring-data-rest-core</artifactId>
             <version>3.5.3</version>
         </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-testbench-unit-shared</artifactId>
-            <version>9.0.0</version>
-        </dependency>
     </dependencies>
 
     <build>
